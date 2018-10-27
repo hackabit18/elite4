@@ -8,12 +8,13 @@
 <body>
   <a-scene>
     <a-assets>
-      <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" crossorigin="anonymous">
-<a-asset-item id="ghost" src="https://ucarecdn.com/6293abc7-2a8f-4d04-96e7-3a874a007783/"></a-asset-item>
-
+<img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" crossorigin="anonymous">
+      <a-asset-item id="left" src="./loud/left.gltf"></a-asset-item>
+      <a-asset-item id="right" src="./loud/right.gltf"></a-asset-item>
     </a-assets>
     <a-sky src="#skyTexture" theta-length="90" radius="30"></a-sky>
-    <a-entity gltf-model="#ghost" position="0 1.6 -10"></a-entity>
+    <a-entity gltf-model="#left" scale="10 10 10" position="0 1.6 -10"></a-entity>
+    <a-entity gltf-model="#right" scale="10 10 10" position="0 1.6 10"></a-entity>
     <a-camera>
       <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05"
         material="color: blue; shader: flat" position="0 0 -1">
@@ -30,7 +31,6 @@
   </a-scene> -->
   <script>
     screen.orientation.lock('portrait').catch(function(error) {
-    // whatever
       console.log("Entered");
     });
   </script>

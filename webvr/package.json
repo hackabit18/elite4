@@ -11,6 +11,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "nodemon": "^1.18.5",
+    "obj2gltf": "^2.3.1",
     "surge": "^0.20.1"
   }
 }
