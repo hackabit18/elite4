@@ -1,13 +1,39 @@
 <html>
-  <head>
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
-  </head>
-  <body>
-    <a-scene physics>
-      <a-box position="-1 4 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
-    </a-scene>
-  </body>
+
+<head>
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  <!-- <script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script> -->
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg" crossorigin="anonymous">
+<a-asset-item id="ghost" src="https://ucarecdn.com/6293abc7-2a8f-4d04-96e7-3a874a007783/"></a-asset-item>
+
+    </a-assets>
+    <a-sky src="#skyTexture" theta-length="90" radius="30"></a-sky>
+    <a-entity gltf-model="#ghost" position="0 1.6 -10"></a-entity>
+    <a-camera>
+      <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05"
+        material="color: blue; shader: flat" position="0 0 -1">
+      </a-entity>
+    </a-camera>
+    <a-entity id="ground" geometry="primitive: cylinder; radius: 30; height: 0.1" position="0 0 0" material="shader: flat; color: #424949">
+    </a-entity>
+  </a-scene>
+  <!-- <a-scene>
+    <a-assets>
+<a-asset-item id="maya" src="https://ucarecdn.com/fa4b1525-56f0-4636-8aac-e548a51ff471/"></a-asset-item>
+    </a-assets>
+    <a-obj-model src="#maya" scale="1 1 1"></a-obj-model>
+  </a-scene> -->
+  <script>
+    screen.orientation.lock('portrait').catch(function(error) {
+    // whatever
+      console.log("Entered");
+    });
+  </script>
+</body>
+
 </html>
